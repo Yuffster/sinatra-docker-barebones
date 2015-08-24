@@ -22,7 +22,7 @@ ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 RUN bundle install
 
-# Take the files from our Git repo and them to $APP_HOME
+# Take the files from our Git repo and add them to $APP_HOME
 # Never edit these files from within containers; make another build.
 ADD . $APP_HOME
 
