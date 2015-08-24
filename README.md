@@ -36,7 +36,9 @@ This works because the sinatra-docker-barebones directory contains a filed named
 
 We'll name it "hello-server" so we know what to call it later, though we could also leave this out and just use the hash that gets displayed when we type `docker ps`.
 
-Then we use -P to publish this service to external connections and -p to map the host port 80 to the container port 8080 (which is exposed our Dockerfile).  Since 80 is the default web port, this means we'll be able to hit our server's IP in the browser directly without having to specify port 8080.
+`-p` maps the host port 80 to the container port 8080 (which is exposed in our Dockerfile).  Since 80 is the default web port, this means we'll be able to hit our server's IP in the browser directly without having to specify port 8080.
+
+Then we use `-P` to publish this service to external computers.
 
 If you **don't** want your container's services to be available to external connections, leave out the -P flag.
 
