@@ -40,8 +40,10 @@ If you **don't** want your container's services to be available to external conn
 
 The -d flag just means that the process will run in the background, instead of spamming your terminal.
 
+`--restart=always` is magic.  Anytime the app crashes (which it will 20% of the time), Docker will automatically restart the container.  The container will also be restarted if the server reboots.
+
 ```
-docker run --name hello-server -d -P -p 80:8080 hello-world
+docker run --name hello-server -d -P --restart=always -p 80:8080 hello-world
 ```
 
 ## Viewing the logs
