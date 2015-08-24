@@ -97,4 +97,10 @@ If you type `curl http://127.0.0.1` from the host computer, or visit the server'
 
 > Hello, world!
 
+...or...
+
+> "Random failure, crashing."
+
+This is also fine, as the webapp is designed to crash 20% of the time in order to demonstrate its crash recovery.  If you refresh the page after a crash, you should see the page again.
+
 ![Thumbs up](thumbsup.gif)
