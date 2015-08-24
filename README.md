@@ -14,21 +14,43 @@ apt-get install git
 ## Start docker and enable on boot
 
 ```
-systemctl start docker
-systemctl enable docker
+systemctl start docker.service
+systemctl enable docker.service
 ```
 
-## Clone and enter this repo
+## Clone this repo
 
 ```
 git clone git@github.com:Yuffster/sinatra-docker-barebones.git
-cd sinatra-docker-barebones/
+```
+
+## Enter the repo directory and build the Docker image
+
+```
+docker build -t hello-world sinatra-docker-barebones/
 ```
 
 ## Run the docker container
 
 ```
-docker run hello -p 8080:8080
+docker run --name hello-server -d -p 8080:8080 hello-world
+```
+
+## Viewing the logs
+
+If you want to see what's going on with the logs, you can view the server by using `docker logs`.
+
+```
+docker logs hello-server
+```
+
+Should return something like...
+
+```
+[2015-08-24 14:59:26] INFO  WEBrick 1.3.1
+[2015-08-24 14:59:26] INFO  ruby 2.2.0 (2014-12-25) [x86_64-linux]
+[2015-08-24 14:59:26] INFO  WEBrick::HTTPServer#start: pid=10 port=8080
+172.17.42.1 - - [24/Aug/2015:14:59:29 +0000] "GET / HTTP/1.1" 200 14 0.0200
 ```
 
 ## Make a request to the running webserver
