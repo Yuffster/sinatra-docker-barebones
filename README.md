@@ -64,7 +64,7 @@ Should return something like...
 ## Make a request to the running webserver
 
 ```
-curl localhost:8080
+curl localhost:80
 ```
 
 You should get:
