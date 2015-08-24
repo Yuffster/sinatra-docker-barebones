@@ -2,6 +2,8 @@
 
 This repository stores a barebones example of using a Docker image to serve a Ruby app.  Useful for making sure that you're running Docker correctly.
 
+This README plus the pdocumentation on how to structure a Dockerfile](https://docs.docker.com/reference/builder/) should be all you need to get started with automated builds using Docker.
+
 Starting from a fresh **Ubuntu 15.04** (not **14.04** since we're using [systemd](https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal)) install...
 
 ## Install dependencies (docker.io, git)
