@@ -34,7 +34,7 @@ docker build -t hello-world sinatra-docker-barebones/
 
 We'll name it "hello-server" so we know what to call it later, though we could also leave this out and just use the hash that gets displayed when we type `docker ps`.
 
-Then we use -P to publish this service to external connections and -p to map the host port 80 to the container port 8080 (which is exposed our Dockerfile).
+Then we use -P to publish this service to external connections and -p to map the host port 80 to the container port 8080 (which is exposed our Dockerfile).  Since 80 is the default web port, this means we'll be able to hit our server's IP in the browser directly without having to specify port 8080.
 
 If you **don't** want your container's services to be available to external connections, leave out the -P flag.
 
