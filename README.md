@@ -32,8 +32,16 @@ docker build -t hello-world sinatra-docker-barebones/
 
 ## Run the docker container
 
+We'll name it "hello-server" so we know what to call it later, though we could also leave this out and just use the hash that gets displayed when we type `docker ps`.
+
+Then we use -P to publish this service to external connections and -p to map the host port 80 to the container port 8080 (which is exposed our Dockerfile).
+
+If you **don't** want your container's services to be available to external connections, leave out the -P flag.
+
+The -d flag just means that the process will run in the background, instead of spamming your terminal.
+
 ```
-docker run --name hello-server -d -p 8080:8080 hello-world
+docker run --name hello-server -d -P -p 80:8080 hello-world
 ```
 
 ## Viewing the logs
@@ -62,5 +70,7 @@ curl localhost:8080
 You should get:
 
 > Hello, world!
+
+If you connect to your server's IP address through your browser, you should also see the same message.
 
 ![Thumbs up](thumbsup.gif)
