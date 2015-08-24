@@ -63,14 +63,8 @@ Should return something like...
 
 ## Make a request to the running webserver
 
-```
-curl localhost:80
-```
-
-You should get:
+If you type `curl http://127.0.0.1` from the host computer, or visit the server's IP address from an external computer, you should get...
 
 > Hello, world!
-
-If you connect to your server's IP address through your browser, you should also see the same message.
 
 ![Thumbs up](thumbsup.gif)
