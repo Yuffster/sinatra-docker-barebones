@@ -40,7 +40,7 @@ We'll name it "hello-server" so we know what to call it later, though we could a
 
 Then we use `-P` to publish this service to external computers.  If you **don't** want your container's services to be available to external connections, leave out the `-P` flag.
 
-The -d flag just means that the process will run in the background, instead of spamming your terminal.
+The `-d` flag just means that the process will run in the background, instead of spamming your terminal.
 
 `--restart=always` is magic.  Anytime the app crashes (which it will 20% of the time), Docker will automatically restart the container.  The container will also be restarted if the server reboots.
 
