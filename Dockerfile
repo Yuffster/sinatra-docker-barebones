@@ -16,8 +16,9 @@ RUN echo Creating app directory in $APP_HOME
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-# Add just our Gemfile and do bundle install.
+# Add just our Gemfiles and do bundle install.
 ADD Gemfile Gemfile
+ADD Gemfile.lock Gemfile.lock
 # (cached unless Gemfile has changed)
 RUN bundle install
 
