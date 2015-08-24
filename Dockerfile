@@ -16,11 +16,6 @@ RUN echo Creating app directory in $APP_HOME
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-# Create our directory skeleton for logs and things.
-RUN mkdir $APP_HOME/logs
-RUN mkdir $APP_HOME/tmp
-RUN mkdir $APP_HOME/tmp/pids
-
 # Take the files from our Git repo and them to $APP_HOME
 # Never edit these files from within containers; make another build.
 ADD . $APP_HOME
