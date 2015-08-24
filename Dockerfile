@@ -19,8 +19,7 @@ WORKDIR $APP_HOME
 # Add just our Gemfiles and do bundle install.
 ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
-# (cached unless Gemfile has changed)
-RUN bundle install
+RUN bundle install # (cached unless Gemfiles have changed)
 
 # Take the files from our Git repo and them to $APP_HOME
 # Never edit these files from within containers; make another build.
