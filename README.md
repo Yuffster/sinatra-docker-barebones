@@ -14,8 +14,8 @@ apt-get install git
 ## Start docker and enable on boot
 
 ```
-systemctl start docker.service
-systemctl enable docker.service
+systemctl start docker
+systemctl enable docker
 ```
 
 ## Clone this repo
