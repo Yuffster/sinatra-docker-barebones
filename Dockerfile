@@ -18,8 +18,7 @@ WORKDIR $APP_HOME
 
 # Add just our Gemfile and do bundle install.
 ADD Gemfile Gemfile
-
-# Install all the gems (cached unless Gemfile has changed)
+# cached unless Gemfile has changed)
 RUN bundle install
 
 # Take the files from our Git repo and them to $APP_HOME
