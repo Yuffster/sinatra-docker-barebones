@@ -48,6 +48,12 @@ The `-d` flag just means that the process will run in the background, instead of
 docker run --name hello-server -d -P --restart=always -p 80:8080 hello-world
 ```
 
+### Security implications
+
+**This is not secure.**
+
+We're running this Docker container as root because it's easy, but for real world use, you'll want to run each different application as its own user.  This makes it harder for exploited vulnerabilities in one application to escalate to root level attacks on the entire system.
+
 ## Viewing the logs
 
 If you want to see what's going on with the logs, you can view the server by using `docker logs`.
