@@ -24,11 +24,13 @@ systemctl enable docker
 git clone git@github.com:Yuffster/sinatra-docker-barebones.git
 ```
 
-## Enter the repo directory and build the Docker image
+## Build the Docker image
 
 ```
 docker build -t hello-world sinatra-docker-barebones/
 ```
+
+This works because the sinatra-docker-barebones directory contains a filed named `Dockerfile`.
 
 ## Run the docker container
 
