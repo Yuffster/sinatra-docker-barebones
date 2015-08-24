@@ -38,7 +38,7 @@ This works because the sinatra-docker-barebones directory contains a filed named
 
 It's a good idea to run each different application as its own user.  This makes it harder for exploited vulnerabilities in one application to escalate to root level attacks on the entire system.
 
-First we create a user named `sinatra`.  This isn't a fully-fledged user, so we don't need to create a home directory or a password or add extra info.
+First we create a user named `sinatra`, because this is a [Sinatra](http://www.sinatrarb.com/) application.  This isn't a fully-fledged user, so we don't need to create a home directory or a password or add extra info.
 
 ```
 adduser sinatra --no-create-home --disabled-password --gecos ""
