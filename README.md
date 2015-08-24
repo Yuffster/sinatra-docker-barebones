@@ -34,9 +34,36 @@ docker build -t hello-world sinatra-docker-barebones/
 
 This works because the sinatra-docker-barebones directory contains a filed named `Dockerfile`.
 
+## Create an app-specific user
+
+It's a good idea to run each different application as its own user.  This makes it harder for exploited vulnerabilities in one application to escalate to root level attacks on the entire system.
+
+First we create a user named `sinatra`.  This isn't a fully-fledged user, so we don't need to create a home directory or a password or add extra info.
+
+```
+adduser sinatra --no-create-home --disabled-password --gecos ""
+```
+
+Then we add the new user to the `docker` group (in order to allow it to use docker).
+
+```
+usermod -a -G docker sinatra
+```
+
+Now, we can type `su sinatra` to switch to that user instead of running as root.
+
 ## Run the docker container
 
 We'll name it "hello-server" so we know what to call it later, though we could also leave this out and just use the hash that gets displayed when we type `docker ps`.
+
+
+**Make sure you don't run this command as the root user.**
+
+```
+docker run --name hello-server -d -P --restart=always -p 80:8080 hello-world
+```
+
+### Argument explanation
 
 `-p` maps the host port 80 to the container port 8080 (which is exposed in our Dockerfile).  Since 80 is the default web port, this means we'll be able to hit our server's IP in the browser directly without having to specify port 8080.
 
@@ -46,15 +73,6 @@ The `-d` flag just means that the process will run in the background, instead of
 
 `--restart=always` is magic.  Anytime the app crashes (which it will 20% of the time), Docker will automatically restart the container.  The container will also be restarted if the server reboots.
 
-```
-docker run --name hello-server -d -P --restart=always -p 80:8080 hello-world
-```
-
-### Security implications
-
-**This is not secure.**
-
-We're running this Docker container as root because it's easy, but for real world use, you'll want to run each different application as its own user.  This makes it harder for exploited vulnerabilities in one application to escalate to root level attacks on the entire system.
 
 ## Viewing the logs
 
