@@ -2,7 +2,7 @@
 
 This repository stores a barebones example of using a Docker image to serve a Ruby app.  Useful for making sure that you're running Docker correctly.
 
-Starting from a fresh **Ubuntu 15.04** (not **14.04** since we're using systemd) install...
+Starting from a fresh **Ubuntu 15.04** (not **14.04** since we're using [systemd](https://www.digitalocean.com/community/tutorials/systemd-essentials-working-with-services-units-and-the-journal)) install...
 
 ## Install dependencies (docker.io, git)
 
