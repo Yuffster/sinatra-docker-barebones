@@ -60,12 +60,12 @@ Now, we can type `su sinatra` to switch to that user instead of running as root.
 
 We'll name it "hello-server" so we know what to call it later, though we could also leave this out and just use the hash that gets displayed when we type `docker ps`.
 
-
-**Make sure you don't run this command as the root user.**
-
 ```
 docker run --name hello-server -d -P --restart=always -p 80:8080 hello-world
 ```
+
+**Never use `docker run` as the root user.**
+
 
 ### Argument explanation
 
