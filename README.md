@@ -103,19 +103,36 @@ If you type `curl http://127.0.0.1` from the host computer, or visit the server'
 
 This is also fine, as the webapp is designed to crash 20% of the time in order to demonstrate its crash recovery.  If you refresh the page after a crash, you should see the page again.
 
-If you type `docker logs hello-server`, you should see something like this:
+If you type `docker logs hello-server`, you should see the web server's log.
+
+Normal functioning web requests...
 
 ```
 74.89.000.0 - - [25/Aug/2015:13:21:51 +0000] "GET / HTTP/1.1" 200 14 0.0017
 74.89.000.0 - - [25/Aug/2015:13:21:53 +0000] "GET / HTTP/1.1" 200 14 0.0017
 74.89.000.0 - - [25/Aug/2015:13:21:55 +0000] "GET / HTTP/1.1" 200 14 0.0036
+```
+
+Followed by an intentional crash...
+
+```
 I, [2015-08-25T13:21:56.270690 #8]  INFO -- : Randomly crashing the server in order to demonstrate adversity.
 74.89.000.0 - - [25/Aug/2015:13:21:56 +0000] "GET / HTTP/1.1" 200 25 0.0028
 [2015-08-25 13:21:57] INFO  going to shutdown ...
+```
+
+Followed by a reboot...
+
+```
 [2015-08-25 13:21:57] INFO  WEBrick::HTTPServer#start done.
 [2015-08-25 13:21:58] INFO  WEBrick 1.3.1
 [2015-08-25 13:21:58] INFO  ruby 2.2.0 (2014-12-25) [x86_64-linux]
 [2015-08-25 13:21:58] INFO  WEBrick::HTTPServer#start: pid=8 port=8080
+```
+
+Followed by normal functioning requests again...
+
+```
 74.89.000.0 - - [25/Aug/2015:13:23:22 +0000] "GET /?p=4740 HTTP/1.1" 200 14 0.0195
 74.89.000.0 - - [25/Aug/2015:13:28:07 +0000] "GET / HTTP/1.1" 200 14 0.0019
 ```
