@@ -34,6 +34,10 @@ docker build -t hello-world sinatra-docker-barebones/
 
 This works because the sinatra-docker-barebones directory contains a filed named `Dockerfile`.
 
+We're not going to get into the `Dockerfile` itself here because it's very application specific, but it's basically a way of taking a base virtual machine image and automatically executing commands to set things up the way they need to be set up in order to run your application.
+
+You can read all about it in the [official documentation](https://docs.docker.com/reference/builder/).
+
 ## Create an app-specific user
 
 It's a good idea to run each different application as its own user.  This makes it harder for exploited vulnerabilities in one application to escalate to root level attacks on the entire system.
