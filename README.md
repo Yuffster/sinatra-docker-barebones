@@ -40,7 +40,7 @@ You can read all about it in the [official documentation](https://docs.docker.co
 
 ## Create an app-specific user
 
-It's a good idea to run each different application as its own user.  This makes it harder for exploited vulnerabilities in one application to escalate to root level attacks on the entire system.
+It's a good idea to run each different application as its own user.
 
 First we create a user named `sinatra`, because this is a [Sinatra](http://www.sinatrarb.com/) application.  This isn't a fully-fledged user, so we don't need to create a home directory or a password or add extra info.
 
@@ -63,9 +63,6 @@ We'll name it "hello-server" so we know what to call it later, though we could a
 ```
 docker run --name hello-server -d -P --restart=always -p 80:8080 hello-world
 ```
-
-**Never use `docker run` as the root user.**
-
 
 ### Argument explanation
 
